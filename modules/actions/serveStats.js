@@ -44,18 +44,18 @@ export default function serveStats(req, res) {
     return res.status(403).send({ error: '?until must be a date in the past' });
   }
 
-  getStats(since, until).then(
-    stats => {
-      res
-        .set({
-          'Cache-Control': 'public, max-age=3600', // 1 hour
-          'Cache-Tag': 'stats'
-        })
-        .send(stats);
-    },
-    error => {
-      console.error(error);
-      res.status(500).send({ error: 'Unable to fetch stats' });
-    }
-  );
+  // getStats(since, until).then(
+  //   stats => {
+  //     res
+  //       .set({
+  //         'Cache-Control': 'public, max-age=3600', // 1 hour
+  //         'Cache-Tag': 'stats'
+  //       })
+  //       .send(stats);
+  //   },
+  //   error => {
+  //     console.error(error);
+  //     res.status(500).send({ error: 'Unable to fetch stats' });
+  //   }
+  // );
 }
