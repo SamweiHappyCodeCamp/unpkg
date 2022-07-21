@@ -9,7 +9,9 @@
     "serve": "nodemon -w server.js server.js",
     "test": "jest",
     "watch": "rollup -c -w",
-    "start":"set NODE_ENV=production&&node server.js"
+    "dev": "npm run build  && set NODE_ENV=production&&node server.js",
+    "start-pm2": "npm run build && pm2 start ecosystem.config.js",
+    "stop-pm2": "pm2 stop unpkg && pm2 delete unpkg"
   },
   "dependencies": {
     "@babel/core": "^7.2.2",
@@ -68,8 +70,9 @@
     "eslint-plugin-react": "7.x",
     "eslint-plugin-react-hooks": "1.x",
     "jest": "^22.4.4",
-    "nodemon": "^1.19.1",
+    "pm2": "^5.2.0",
     "rollup": "^1.1.0",
+    "nodemon": "1.19.4",
     "rollup-plugin-babel": "^4.2.0",
     "rollup-plugin-commonjs": "^9.2.0",
     "rollup-plugin-json": "^3.1.0",
